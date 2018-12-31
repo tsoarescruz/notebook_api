@@ -20,17 +20,9 @@ RUN mkdir -p /home/app
 # Workdir
 WORKDIR /home/app/
 
-#Add Docker path
-ADD docker /home/app/
-
-WORKDIR /home/app
-
 # ADD gems
 ADD Gemfile /home/app/Gemfile
 ADD Gemfile.lock /home/app/Gemfile.lock
-
-#Add sidekiq pid
-#ADD sidekiq.pid /home/app/tmp/pids/
 
 #Run bundle
 RUN bundle install
@@ -44,7 +36,9 @@ RUN groupadd --gid 9999 app && \
     chown -R app:app /home/app
 
 #Expose app port
-EXPOSE 80 300 9000
+EXPOSE 80 3000
 
 # Save timestamp of image building
 RUN date -u > BUILD_TIME
+
+CMD
