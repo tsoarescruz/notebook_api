@@ -5,8 +5,8 @@ MAINTAINER Thiago Soares <thiagosoarescruz0@gmail.com>
 
 # Install Build essentials and MySQL client
 RUN apt-get update -qq && apt-get install -y build-essential \
-    libpq-dev nodejs-legacy mysql-client ca-certificates curl\
-    libssl-dev apt-utils nodejs mysql-client && \
+    libpq-dev mysql-client ca-certificates curl\
+    libssl-dev apt-utils mysql-client && \
     apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/*
 
@@ -40,5 +40,3 @@ EXPOSE 80 3000
 
 # Save timestamp of image building
 RUN date -u > BUILD_TIME
-
-CMD
