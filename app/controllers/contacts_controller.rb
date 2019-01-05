@@ -8,9 +8,10 @@ class ContactsController < ApplicationController
   def index
     @contacts = Contact.all
 
+    #Fazendo chamadas para um metodo de traducao do modelo
+    # render json: @contacts, methods: :birthdate_br
     render json: @contacts
   end
-
 
   #Utilizando o map para fazer merge do atributo author Jackson para cada no do json
   #Esta abordagem insere esse atributo para cada no e indicado quando se quer fazer
@@ -25,7 +26,15 @@ class ContactsController < ApplicationController
 
   # GET /contacts/1
   def show
-    render json: @contact #, include: :kind
+
+    #Fazendo o include de kind ao json
+    # render json: @contact #, include: :kind
+
+    #Fazendo a traducao modificando o json e em seguida fazendo a traducao com
+    #um metodo que esta no modelo, um complementa o outro
+
+    # render json: { name: @contact.name, birthdate: I18n.l(@contact.birthdate) }
+    render json: @contact.to_br
   end
 
   # POST /contacts

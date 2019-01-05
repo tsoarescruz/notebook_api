@@ -27,4 +27,17 @@ class Contact < ApplicationRecord
   #     include: :kind
   #   )
   # end
+
+
+  def birthdate_br
+    I18n.l(self.birthdate) unless self.birthdate.blank?
+  end
+
+  def to_br
+    {
+      name:self.name,
+      emai: self.email,
+      birthdate: self.birthdate_br
+    }
+  end
 end
