@@ -3,12 +3,12 @@ class ContactsController < ApplicationController
 
   #Este root true insere o cabecalho ou root em cada no do json
   #Insere informacoes a mais, podendo deixar o json mais pesado
-  s
+
   # GET /contacts
   def index
     @contacts = Contact.all
 
-    render json: @contacts, root: true
+    render json: @contacts
   end
 
 
