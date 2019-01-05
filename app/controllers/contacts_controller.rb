@@ -1,16 +1,31 @@
 class ContactsController < ApplicationController
   before_action :set_contact, only: [:show, :update, :destroy]
 
+  #Este root true insere o cabecalho ou root em cada no do json
+  #Insere informacoes a mais, podendo deixar o json mais pesado
+  s
   # GET /contacts
   def index
     @contacts = Contact.all
 
-    render json: @contacts
+    render json: @contacts, root: true
   end
+
+
+  #Utilizando o map para fazer merge do atributo author Jackson para cada no do json
+  #Esta abordagem insere esse atributo para cada no e indicado quando se quer fazer
+  #merge de atributos de outro objeto e montar o json
+
+  # GET /contacts
+  # def index
+  #   @contacts = Contact.all
+  #
+  #   render json: @contacts.map {|contact| contact.attributes.merge({author: "Jackson"}) }
+  # end
 
   # GET /contacts/1
   def show
-    render json: @contact
+    render json: @contact, root:true
   end
 
   # POST /contacts
