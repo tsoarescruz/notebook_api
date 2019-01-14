@@ -39,6 +39,8 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   #A library for generating fake data such as names, addresses, and phone numbers.
   gem 'faker'
+  #A Rails >= 3.0 Application
+  gem 'pry-rails'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
