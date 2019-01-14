@@ -1,6 +1,13 @@
 class Contact < ApplicationRecord
   belongs_to :kind
   has_many :phones
+  accepts_nested_attributes_for :phones
+
+  def as_json(options={})
+    h = super(options)
+    h[:birthdate] = birthdate_br
+    h
+  end
 
   # def author
   #   "Jackson Pires"
@@ -29,16 +36,17 @@ class Contact < ApplicationRecord
   #   )
   # end
 
-
   def birthdate_br
     I18n.l(self.birthdate) unless self.birthdate.blank?
   end
 
-  def to_br
-    {
-      name:self.name,
-      emai: self.email,
-      birthdate: self.birthdate_br
-    }
-  end
+  #Comentado para poder fazer o metodo birthdate_br para o render_to_json
+
+  #def to_br
+  #  {
+  #    name:self.name,
+  #    emai: self.email,
+  #    birthdate: self.birthdate_br
+  #  }
+  #end
 end

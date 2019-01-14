@@ -34,7 +34,8 @@ class ContactsController < ApplicationController
     #um metodo que esta no modelo, um complementa o outro
 
     # render json: { name: @contact.name, birthdate: I18n.l(@contact.birthdate) }
-    render json: @contact.to_br
+    #render json: @contact.to_br
+    render json: @contact, include: [:kind, :phones]
   end
 
   # POST /contacts
