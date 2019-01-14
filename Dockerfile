@@ -24,6 +24,9 @@ WORKDIR /home/app/
 ADD Gemfile /home/app/Gemfile
 ADD Gemfile.lock /home/app/Gemfile.lock
 
+#GEM install bundle
+RUN gem install bundle
+
 #Run bundle
 RUN bundle install
 
