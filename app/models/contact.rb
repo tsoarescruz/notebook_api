@@ -1,7 +1,22 @@
 class Contact < ApplicationRecord
+  # O Belongs_to o id do kind fica do lado dos contatos 
   belongs_to :kind
+  # O Optional true faz com que durante o cadastro, esse parametro nao seja obrigatorio
+  # para cria o objeto
+  # , optional:true
+  # Has_many o id do contato fica gravado no telefone
+  # Os contatos possuiem muitos telefones
   has_many :phones
+  
+  # Não preciso ter os telefones criados previamente
+  #Posso fazer a referencia, posso cadastrar junto.
+
   accepts_nested_attributes_for :phones
+
+
+
+  # Método para fazer o parceamento da data utilizando a data
+  # birthdate_br com o i18n parceada com as "/"
 
   def as_json(options={})
     h = super(options)

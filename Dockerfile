@@ -1,4 +1,4 @@
-FROM ubuntu:12.04
+FROM ubuntu:18.04
 FROM ruby:2.3.3
 
 MAINTAINER Thiago Soares <thiagosoarescruz0@gmail.com>
