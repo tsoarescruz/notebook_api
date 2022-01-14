@@ -47,12 +47,12 @@ GEM
     erubis (2.7.0)
     faker (2.2.1)
       i18n (>= 0.8)
-    ffi (1.15.3)
+    ffi (1.15.5)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
-    listen (3.6.0)
+    listen (3.7.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     loofah (2.3.1)
@@ -132,7 +132,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   faker
-  listen (~> 3.6.0)
+  listen (~> 3.7.1)
   pry-rails
   puma (~> 3.12)
   rails (~> 5.0.6)
